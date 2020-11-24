@@ -1,0 +1,18 @@
+add $t1,$t2,$t3# 1=2+3
+lw $t1,($t2)
+j non
+sw $t3,($t4)
+non:
+addu $t2,$t3,$t4
+bne $t1,$t2,label
+lui $t2,100
+label:
+addi $t2,$t1,100
+and $t2,$t4,$t3
+addi $t2,$t5,3
+jr $t5
+jal home
+lbu $t2,($t1)
+home:
+lhu $t6,($t1)
+beq $t2,$t1,home
